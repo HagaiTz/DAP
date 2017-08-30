@@ -33,6 +33,7 @@ function checkStructure {
 	echo "If the data is already arranged in the format above press any
 key to continue. Otherwise type 'no', arrange the data in the right 
 format and run again."
+	echo ""
 	read -p "Do you wish to continue? " yn
 	if [[ $yn == [Nn]* ]] ; then
 		exit 1
@@ -40,7 +41,12 @@ format and run again."
 } 
 
 function endMessege {
-	echo "Done"
+	echo ""
+	echo ""
+	echo "Finished processing, results are saved in:
+
+$1"
+	exit 0
 }
 
 function mkFold {
@@ -134,8 +140,6 @@ mkFold ${logFolder}
 procFold ${inFolder} ${outFolder} ${logFolder} \
 	>> ${logFolder}/DataPreparation_Output.txt \
 	2>>${logFolder}/DataPreparation_Error.txt
-
-
 
 
 

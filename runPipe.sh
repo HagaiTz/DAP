@@ -3,7 +3,7 @@
 function checkStructure {
 	echo "================================================================="
 	echo "Please make sure that the data is in the right structure."
-	echo "There are two options for folder structureno - Dicom & Nifti:"
+	echo "There are two options for folder structure - Dicom & Nifti:"
 	echo ""
 	echo "Dicom - If the data is in dicom format the folder must contain
 	another folder named 'dicom' (lower case). Following the dicom
@@ -126,6 +126,7 @@ mkFold ${outFolder}
 mkFold ${logFolder}
 
 
-# Start Processing
+# Setup Data
 procFold ${inFolder} ${outFolder} ${logFolder} 2> ${logFolder}/tmp.txt
+rm ${logFolder}/tmp.txt
 

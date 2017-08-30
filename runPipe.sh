@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function checkStructure {
+	echo ""
 	echo "================================================================="
 	echo "Please make sure that the data is in the right structure."
 	echo "There are two options for folder structure - Dicom & Nifti:"
@@ -14,7 +15,7 @@ function checkStructure {
 	echo "Nifti - If the data is already in format then the folder should
 	contain the T1 weighted nifti file as 't1.nii.gz' and a folder called
 	'raw' the 'raw folder in turn should contain the relevant dti file: 
-	'dti.bvals','dti.bvecs' & 'dti.nii.gz'. (see example below)"
+	'dti.bval','dti.bvec' & 'dti.nii.gz'. (see example below)"
 	echo ""
 	echo "Example:"
 	echo "--------"
@@ -25,9 +26,9 @@ function checkStructure {
 	echo "           dicom/           --OR--       raw/     t1.nii.gz"
 	echo "         ____|____                        |"
 	echo "        |         |                       |"
-	echo "       DTI/      T1/                  dti.bvals"
-	echo "        |         |                   dti.bvecs"
-	echo "     (*.dcm)    (*.dcm)               dti.nii.gz"
+	echo "       DTI/      T1/                   dti.bval"
+	echo "        |         |                    dti.bvec"
+	echo "     (*.dcm)    (*.dcm)                dti.nii.gz"
 	echo ""
 	echo ""
 	echo "If the data is already arranged in the format above press any
@@ -44,8 +45,10 @@ function endMessege {
 	echo ""
 	echo ""
 	echo "Finished processing, results are saved in:
-
-$1"
+\"$1\""
+	echo ""
+	echo "================================================================="
+	echo ""
 	exit 0
 }
 

@@ -39,6 +39,10 @@ format and run again."
 	fi
 } 
 
+function endMessege {
+	echo "Done"
+}
+
 function mkFold {
 	if [[ ! -e $1 ]]; then
 	mkdir -p $1
@@ -55,19 +59,17 @@ function convertDTI {
 			mv $2/*.nii.gz $2/dti.nii.gz
 			mv $2/*.bval $2/dti.bval
 			mv $2/*.bvec $2/dti.bvec
-			echo true
-			return
+			return 
 		fi
 	done
 	echo --$1 >> $3/Missing_Data.txt
-	echo false
 }
 
 function convertT1 {
 	for file in `ls $1` ; do
 		if [[ $file == *T1* ]] ; then
 			dcm2nii -o $2 -g y -r y -x n $1/$file/*.dcm
-			find $2 -type f ! -name o*.nii.gz -exec rm -f {} +
+			find $2 -maxdepth 1 -type f ! -name o*.nii.gz -exec rm -f {} +
 			mv $2/*.nii.gz $2/t1.nii.gz
 			return
 		fi
@@ -91,9 +93,11 @@ function procFold {
 	for file in `ls $1` ;do
 		if [[ -f $1/$file ]] ; then 
 			continue;
-		elif [[  $file == dicom  ]]; then 
-			if [[  `convertDTI $1/$file $2/raw $3 ` == true ]] ; then
-				convertT1 $1/$file $2
+		elif [[  $file == dicom  ]]; then
+			inDir=$1/$file
+			convertDTI $inDir $2/raw $3
+			if [[ -e $2/raw ]] ; then
+				convertT1 $inDir $2
 			fi
 			return;
 		elif [[ $file == raw ]]; then
@@ -127,6 +131,12 @@ mkFold ${logFolder}
 
 
 # Setup Data
-procFold ${inFolder} ${outFolder} ${logFolder} 2> ${logFolder}/tmp.txt
-rm ${logFolder}/tmp.txt
+procFold ${inFolder} ${outFolder} ${logFolder} \
+	>> ${logFolder}/DataPreparation_Output.txt \
+	2>>${logFolder}/DataPreparation_Error.txt
 
+
+
+
+
+endMessege ${outFolder}

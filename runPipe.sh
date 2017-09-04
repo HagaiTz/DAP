@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function checkStructure {
+function beginMessege {
 	echo ""
 	echo "================================================================="
 	echo "Please make sure that the data is in the right structure."
@@ -39,7 +39,19 @@ format and run again."
 	if [[ $yn == [Nn]* ]] ; then
 		exit 1
 	fi
+	echo ""
+	echo "..."
 } 
+
+function setupMessege {
+	echo " --->  Setting up data..."
+	echo ""
+}
+
+function PreProcessMessege {
+	echo " --->  Pre-processing data..."
+	echo ""
+}
 
 function endMessege {
 	echo ""
@@ -54,69 +66,8 @@ function endMessege {
 
 function mkFold {
 	if [[ ! -e $1 ]]; then
-	mkdir -p $1
-fi
-}
-
-
-# Convert Dicom
-function convertDTI {
-	for file in `ls $1` ; do
-		if [[ $file == *DTI* ]] ; then
-			mkFold $2
-			dcm2nii -o $2 -g y $1/$file/*.dcm
-			mv $2/*.nii.gz $2/dti.nii.gz
-			mv $2/*.bval $2/dti.bval
-			mv $2/*.bvec $2/dti.bvec
-			return 
-		fi
-	done
-	echo --$1 >> $3/Missing_Data.txt
-}
-
-function convertT1 {
-	for file in `ls $1` ; do
-		if [[ $file == *T1* ]] ; then
-			dcm2nii -o $2 -g y -r y -x n $1/$file/*.dcm
-			find $2 -maxdepth 1 -type f ! -name o*.nii.gz -exec rm -f {} +
-			mv $2/*.nii.gz $2/t1.nii.gz
-			return
-		fi
-	done
-}
-
-# Copy Nifti form
-function copyFold {
-	if [[ ! -e $1/raw/dti.bvec* || \
-		! -e $1/raw/dti.bval* || \
-		! -e $1/raw/dti.nii.gz ]] ; then
-		echo --$1 >> $3/Missing_Data.txt
-	else
-		mkFold $2
-		cp -rf $1/* $2
+		mkdir -p $1
 	fi
-}
-
-
-function procFold {
-	for file in `ls $1` ;do
-		if [[ -f $1/$file ]] ; then 
-			continue;
-		elif [[  $file == dicom  ]]; then
-			inDir=$1/$file
-			convertDTI $inDir $2/raw $3
-			if [[ -e $2/raw ]] ; then
-				convertT1 $inDir $2
-			fi
-			return;
-		elif [[ $file == raw ]]; then
-			copyFold $1 $2 $3
-			return;
-		elif [[ -d $1/$file ]] ; then
-			procFold ${1}/${file} ${2}/${file} $3
-			continue;
-		fi
-	done
 }
 
 
@@ -129,21 +80,29 @@ if (( $# != 1 )); then
 fi
 
 # Check Structure
-checkStructure
+beginMessege
 
 # Setting directories
 inFolder=$1
-outFolder=`dirname ${inFolder}`/`basename ${inFolder}`_Processed
+outFolder=`dirname ${inFolder}`/`basename ${inFolder}`_Processed_T
 logFolder=`dirname ${inFolder}`/`basename ${inFolder}`_logs
 mkFold ${outFolder}
 mkFold ${logFolder}
 
 
 # Setup Data
-procFold ${inFolder} ${outFolder} ${logFolder} \
-	>> ${logFolder}/DataPreparation_Output.txt \
-	2>>${logFolder}/DataPreparation_Error.txt
+setupMessege
 
+bash `dirname $0`/procFold.sh \
+ ${inFolder} ${outFolder} ${logFolder} \
+	> ${logFolder}/DataPreparation_Output.txt \
+	2> ${logFolder}/DataPreparation_Error.txt
 
+# dtiInit
+PreProcessMessege
+
+#sh `dirname $0`/dtiInit.sh ${outFolder} ${logFolder}
+
+#
 
 endMessege ${outFolder}

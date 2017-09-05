@@ -84,7 +84,7 @@ beginMessege
 
 # Setting directories
 inFolder=$1
-outFolder=`dirname ${inFolder}`/`basename ${inFolder}`_Processed_T
+outFolder=`dirname ${inFolder}`/`basename ${inFolder}`_Processed
 logFolder=`dirname ${inFolder}`/`basename ${inFolder}`_logs
 mkFold ${outFolder}
 mkFold ${logFolder}

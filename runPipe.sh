@@ -53,6 +53,11 @@ function PreProcessMessege {
 	echo ""
 }
 
+function AFQMessege {
+	echo " --->  Processing data..."
+	echo ""
+}
+
 function endMessege {
 	echo ""
 	echo ""
@@ -103,6 +108,8 @@ PreProcessMessege
 sh `dirname $0`/dtiInit.sh ${outFolder} ${logFolder}
 
 # AFQ
+AFQMessege
+sh `dirname $0`/afqProc.sh ${outFolder} ${logFolder}
 
 
 endMessege ${outFolder}

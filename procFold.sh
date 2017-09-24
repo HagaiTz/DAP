@@ -12,7 +12,7 @@ function convertDicom {
 	dti=(`ls $1/dicom | grep DTI`)
 	if [[ $dti != "" ]]; then
 		mkFold $2/raw
-		dcm2nii -o $2/raw -g y $1/dicom/$dti/*.dcm
+		dcm2niix -o $2/raw -g y $1/dicom/$dti/*.dcm
 		mv $2/raw/*.nii.gz $2/raw/dti.nii.gz
 		mv $2/raw/*.bval $2/raw/dti.bval
 		mv $2/raw/*.bvec $2/raw/dti.bvec

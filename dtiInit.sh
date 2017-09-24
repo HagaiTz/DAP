@@ -9,8 +9,8 @@ if [ -e $1/raw ]; then
 	fi
 
 	/opt/MATLAB/R2017a/bin/matlab -nodisplay -nojvm -nosplash -r "subjDti('$1')" \
-	> $2/Init_output.txt \
-	2> $2/Init_error.txt
+	> $2/dtiInit_output.txt \
+	2> $2/dtiInit_error.txt
 
     return;
 fi

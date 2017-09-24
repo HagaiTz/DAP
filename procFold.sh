@@ -36,6 +36,8 @@ function copyFold {
 	else
 		mkFold $2
 		cp -rf $1/* $2
+		mv $2/raw/dti.bvec* $2/raw/dti.bvec
+		mv $2/raw/dti.bval* $2/raw/dti.bval
 	fi
 }
 

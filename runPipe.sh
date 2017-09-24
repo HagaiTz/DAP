@@ -100,9 +100,9 @@ bash `dirname $0`/procFold.sh \
 
 # dtiInit
 PreProcessMessege
+sh `dirname $0`/dtiInit.sh ${outFolder} ${logFolder}
 
-#sh `dirname $0`/dtiInit.sh ${outFolder} ${logFolder}
+# AFQ
 
-#
 
 endMessege ${outFolder}

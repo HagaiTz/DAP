@@ -25,14 +25,14 @@ function subjDti(subjDir)
 
     dtiFile = fullfile(subjDir,'raw','dti.nii.gz');
     t1File = fullfile(subjDir,'t1.nii.gz');
-    
+
     cd (subjDir);
 
     % Ac-Pc Alignment
     if (exist(t1File))
+        t1AcpcFile = fullfile(subjDir,'t1_acpc.nii.gz');
         mrAnatAutoAlignAcpcNifti(t1File,t1AcpcFile);
         mrAnatAutoAlignAcpcNifti(t1AcpcFile,t1AcpcFile);
-        t1AcpcFile = fullfile(subjDir,'t1_acpc.nii.gz');
         ni = readFileNifti(t1AcpcFile);
         ni = niftiSetQto(ni, ni.sto_xyz);
         writeFileNifti(ni, t1AcpcFile);

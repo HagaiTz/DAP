@@ -5,14 +5,14 @@
 
 if [ -e $1/raw ]; then
 	if [ ! -e $2 ]; then
-		echo mkdir -p $2
+		mkdir -p $2
 	fi
 
 	/opt/MATLAB/R2017a/bin/matlab -nodisplay -nojvm -nosplash -r "subjAfq('$1')" \
 	> $2/afq_output.txt \
 	2> $2/afq_error.txt
 
-    return;
+    exit;
 fi
 
 for file in $(ls $1); do

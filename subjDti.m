@@ -5,13 +5,6 @@ function subjDti(subjDir)
     var = getenv('HOME');
 
     % Add modules to MATLAB. Do not change the order of these programs:
-    %SPM8Path = ['/opt/spm8'];
-    %addpath(genpath(SPM8Path));
-    %vistaPath = ['/opt/vistasoft'];
-    %addpath(genpath(vistaPath));
-    %AFQPath = ['/opt/AFQ'];
-    %addpath(genpath(AFQPath));
-
     fsldir=getenv('FSLDIR');
     setenv('FSLOUTPUTTYPE','NIFTI_GZ');
     fsllibdir=sprintf('%s/%s', fsldir, 'bin');
@@ -21,8 +14,7 @@ function subjDti(subjDir)
 
     addpath(genpath(subjDir));
     
-    % Set file names:
-
+    % Set file names
     dtiFile = fullfile(subjDir,'raw','dti.nii.gz');
     t1File = fullfile(subjDir,'t1.nii.gz');
 
@@ -40,7 +32,7 @@ function subjDti(subjDir)
         t1AcpcFile = 'MNI';
     end
 
-
+    % Set Qto, may not be necessery
     ni = readFileNifti(dtiFile);
     ni = niftiSetQto(ni, ni.sto_xyz);
     writeFileNifti(ni, dtiFile);
@@ -84,7 +76,7 @@ function subjDti(subjDir)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
 
-    % Here's the one line of code to do the DTI preprocessing:
+    % dtiInit pipeline
     dtiInit(dtiFile, t1AcpcFile, dwParams);
 
     exit;

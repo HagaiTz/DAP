@@ -5,13 +5,6 @@ function subjAfq(subjDir)
     var = getenv('HOME');
 
     % Add modules to MATLAB. Do not change the order of these programs:
-    %SPM8Path = ['/opt/spm8'];
-    %addpath(genpath(SPM8Path));
-    %vistaPath = ['/opt/vistasoft'];
-    %addpath(genpath(vistaPath));
-    %AFQPath = ['/opt/AFQ'];
-    %addpath(genpath(AFQPath));
-
     fsldir=getenv('FSLDIR');
     setenv('FSLOUTPUTTYPE','NIFTI_GZ');
     fsllibdir=sprintf('%s/%s', fsldir, 'bin');
@@ -19,9 +12,11 @@ function subjAfq(subjDir)
     setenv('LD_LIBRARY_PATH');
     setenv('LD_LIBRARY_PATH',fsllibdir);
 
+    % Folders
     addpath(genpath(subjDir));
     subjDir = fullfile(subjDir,'dti');
 
+    % AFQ pipeline
     afq = AFQ_Create('sub_dirs', subjDir,'sub_group',0,'showfigs', false);
     afq = AFQ_run(subjDir,0,afq);
     afq = AFQ_SegmentCallosum(afq, 0);

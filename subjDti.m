@@ -37,6 +37,9 @@ function subjDti(subjDir)
     ni = niftiSetQto(ni, ni.sto_xyz);
     writeFileNifti(ni, dtiFile);
    
+    bvals = dlmread(fullfile(subjDir,'raw','dti.bval'));
+    bvals(bvals < 1e-3) = 0;
+    dlmwrite(fullfile(subjDir,'raw','dti.bval'),bvals,' ');
 
     % Determine phase encode dir:
     % > info=dicominfo([var,'/compute/images/EDSD/FRE_AD001/DICOM/diff/MR.22533.01274.dcm']);

@@ -40,7 +40,6 @@ format and run again."
 		exit 1
 	fi
 	echo ""
-	echo "..."
 } 
 
 function setupMessege {
@@ -97,7 +96,6 @@ mkFold ${logFolder}
 
 # Setup Data
 setupMessege
-
 bash `dirname $0`/procFold.sh \
  ${inFolder} ${outFolder} ${logFolder} \
 	> ${logFolder}/DataPreparation_Output.txt \
@@ -111,5 +109,7 @@ sh `dirname $0`/dtiInit.sh ${outFolder} ${logFolder}
 AFQMessege
 sh `dirname $0`/afqProc.sh ${outFolder} ${logFolder}
 
+# Analysis
+bash `dirname $0`/tractAnalysis.sh ${outFolder} ${logFolder}
 
 endMessege ${outFolder}

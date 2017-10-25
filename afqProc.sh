@@ -8,7 +8,7 @@ if [ -e $1/raw ]; then
 		mkdir -p $2
 	fi
 
-	/opt/MATLAB/R2017a/bin/matlab -nodisplay -nojvm -nosplash -r "subjAfq('$1')" \
+	/opt/MATLAB/R2017a/bin/matlab -nodesktop -nodisplay -nojvm -nosplash -r "subjAfq('$1')" \
 	> $2/afq_output.txt \
 	2> $2/afq_error.txt
 

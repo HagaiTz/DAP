@@ -60,11 +60,15 @@ to type the full path for the main script
 
 For more details you can refer to [user manual](manual.pdf).
 
-## Authors
+## Author
 - **Hagai Tzafrir** - HagayT@hotmail.com
-- **Dr.Rola Farah** - rola.farah2@gmail.com
-- **Dr.Tzipi Kraus-Horowitz** - tzipi.kraus@ed.technion.ac.il
 
 ## License
 
+	Copyright (C) 2017   Hagai Tzafrir  HagayT@hotmail.com
+
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details http://www.gnu.org/licenses/
+
+## Acknowledgments
+- **Dr.Rola Farah** - rola.farah2@gmail.com
+- **Dr.Tzipi Kraus-Horowitz** - tzipi.kraus@ed.technion.ac.il

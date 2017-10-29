@@ -3,7 +3,7 @@ This is a pipeline for processing diffusion tensor images (DTI).
 The pipeline was developed to analyze statistical properties of individual
 subjects, as well as comparison between different groups.
 
-This pipeline was developed in and for the Educational Neuro-Imaging Center.
+This pipeline was developed for the Educational Neuro-Imaging Center.
 
 ## Getting Started
 These instructions will walk you through on setting up the envinronemnt

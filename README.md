@@ -60,9 +60,9 @@ to type the full path for the main script
 For more details you can refer to [user manual](manual.pdf).
 
 ## Authors
-**Hagai Tzafrir** - HagayT@hotmail.com
-**Dr.Rola Farah** - rola.farah2@gmail.com
-**Dr.Tzipi Kraus-Horowitz** - tzipi.kraus@ed.technion.ac.il
+- **Hagai Tzafrir** - HagayT@hotmail.com
+- **Dr.Rola Farah** - rola.farah2@gmail.com
+- **Dr.Tzipi Kraus-Horowitz** - tzipi.kraus@ed.technion.ac.il
 
 ## License
 

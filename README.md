@@ -1,4 +1,4 @@
-# DTI-Analysis-Pipeline
+# DTI-Analysis-Pipeline (DAP)
 This is a pipeline for processing diffusion tensor images (DTI).
 The pipeline was developed to analyze statistical properties of individual
 subjects, as well as comparison between different groups.
@@ -10,7 +10,7 @@ These instructions will walk you through on setting up the envinronemnt
 and installing this pipeline on your local machine.
 
 **This pipeline was developed for and tested on Ububtu based linux**
-** - __linux Mint__ **
+** - _linux Mint_ **
 
 ### Prerequisites
 You will need to install the following softwares before using the pipeline:
@@ -60,15 +60,15 @@ to type the full path for the main script
 
 For more details you can refer to [user manual](manual.pdf).
 
-## Author
-- **Hagai Tzafrir** - HagayT@hotmail.com
+## Credits
+- **Hagai Tzafrir** - *Author* - HagayT@hotmail.com
+- **Dr.Rola Farah** - *Contributer* - rola.farah2@gmail.com
+- **Dr.Tzipi Kraus-Horowitz** - *Lab Prof.* - tzipi.kraus@ed.technion.ac.il
 
 ## License
 
 	Copyright (C) 2017   Hagai Tzafrir  HagayT@hotmail.com
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details http://www.gnu.org/licenses/
+Usage of this pipeline must be authorized by **Dr.Tzipi Kraus-Horowitz** - tzipi.kraus@ed.technion.ac.il
 
-## Acknowledgments
-- **Dr.Rola Farah** - rola.farah2@gmail.com
-- **Dr.Tzipi Kraus-Horowitz** - tzipi.kraus@ed.technion.ac.il
+

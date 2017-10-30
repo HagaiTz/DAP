@@ -1,7 +1,16 @@
 %%%%%%%
 function plotTractParams(fg,vals)
+%
+%	This function visualizes a tract with a set of paramers.
+%	The tract must be in AFQ structure.
+%
+%	INPUT:	-- fg    -   Tract to visualize in AFQ format.
+%			-- vals  -   1x100 vector containing values to visualize
+%						 on top of the tract. 
+%
+%
 
-	
+
     radius = 5; subdiv = 30; cmap = 'jet';
     numfib = 100;
     

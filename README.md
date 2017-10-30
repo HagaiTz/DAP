@@ -11,7 +11,7 @@ These instructions will walk you through on setting up the envinronemnt
 and installing this pipeline on your local machine.
 
 **This pipeline was developed for and tested on Ububtu based linux**
-** - _linux Mint_ **
+**- _linux Mint_**
 
 ### Prerequisites
 You will need to install the following softwares before using the pipeline:

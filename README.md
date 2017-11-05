@@ -7,7 +7,7 @@ This pipeline was developed for the
 [Educational Neuro-Imaging Center](http://neuroimaging-center.technion.ac.il/).
 
 ## Getting Started
-These instructions will walk you through on setting up the envinronemnt
+These instructions will walk you through on setting up the environment
 and installing this pipeline on your local machine.
 
 **This pipeline was developed for and tested on Ububtu based linux**
@@ -21,7 +21,7 @@ You will need to install the following softwares before using the pipeline:
 - [AFQ](https://github.com/yeatmanlab/AFQ/wiki)
 
 You will also need to add them to your MATLAB path, this can be done by
-editting MATLAB startup file called `startup.m`.
+editing MATLAB startup file called `startup.m`.
 The file can found at `/PATH/TO/MATLAB/toolbox/local/`.
 For each mentioned software you should add a path by  adding
 a line in `startup.m` file 
@@ -30,7 +30,7 @@ addpath(genpath(fullfile(PATH,TO,SOFTWARE)));
 ```
 **example** - if `spm` folder is `/opt/spm` then add the following line
 ```
-addpath(genpath(fullfile('opt','AFQ')));
+addpath(genpath(fullfile('opt','spm')));
 ```
 
 ### Installing
@@ -39,25 +39,25 @@ First go to the folder where the pipeline will be cloned to,
 then download the pipeline -
 ```
 cd /PATH/TO/PIPELINE
-git clone https://github.com/HagaiTz/DTI-Analysis-Pipeline.git
+git clone https://github.com/HagaiTz/DAP.git
 ```
-You should also add the pipline to MATLAB path.
+You should also add the pipeline to MATLAB path.
 Also, for convenience you can add an alias so that the pipeline can be 
-excuted with ease. This is done by going to your home folder and editting `.basrc`
+executed with ease. This is done by going to your home folder and editing `.basrc`
 environment file.
 Open `.bashrc` with your favorite editor and add the following lines
  **at the bottom** -
 ```
-alias runPipe='/PATH/TO/PIPELINE/DTI-Analysis-Pipeline/runPipe.sh'
-alias tractAnalysis='/PATH/TO/PIPELINE/DTI-Analysis-Pipeline/tractAnalysis.sh'
+alias runPipe='/PATH/TO/PIPELINE/DAP/runPipe.sh'
+alias tractAnalysis='/PATH/TO/PIPELINE/DAP/tractAnalysis.sh'
 ```
 
 ## Quick Start
-In order to run the pipeline use `runPipe [Input folder]` commad. 
+In order to run the pipeline use `runPipe [Input folder]` command. 
 If the environment was set-up as described above, the processing should start.
 However, if you did not define `alias` then to run the pipeline you will need
 to type the full path for the main script 
-`/PATH/TO/PIPELINE/DTI-Analysis-Pipeline/runPipe.sh`.
+`/PATH/TO/PIPELINE/DAP/runPipe.sh`.
 
 For more details you can refer to [user manual](manual.pdf).
 

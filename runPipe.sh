@@ -57,6 +57,11 @@ function AFQMessege {
 	echo ""
 }
 
+function PostProcessMessege {
+	echo " --->  Analyzing Results..."
+	echo ""
+}
+
 function endMessege {
 	echo ""
 	echo ""
@@ -110,6 +115,7 @@ AFQMessege
 sh `dirname $0`/afqProc.sh ${outFolder} ${logFolder}
 
 # Analysis
+PostProcessMessege
 bash `dirname $0`/tractAnalysis.sh ${outFolder} ${logFolder}
 
 endMessege ${outFolder}

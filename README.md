@@ -59,7 +59,7 @@ However, if you did not define `alias` then to run the pipeline you will need
 to type the full path for the main script 
 `/PATH/TO/PIPELINE/DAP/runPipe.sh`.
 
-For more details you can refer to [user manual](manual.pdf).
+For more details you can refer to [user manual](Manual.pdf).
 
 ## Credits
 - **Hagai Tzafrir** - *Author* - HagayT@hotmail.com
